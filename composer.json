@@ -1,0 +1,23 @@
+{
+    "name": "classes/helpers",
+    "description": "Classes Auxiliares.",
+    "keywords": ["helpers", "classes", "programmer"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leonard Araujo",
+            "email": "leonardo.araujornb@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "files": [
+            "src/Helpers/Image/helpers.php"
+        ],
+        "psr-4": {
+            "Helpers\\": "src/Helpers/",
+        }
+    },
+}
