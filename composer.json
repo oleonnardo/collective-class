@@ -17,7 +17,7 @@
             "src/Helpers/Image/helpers.php"
         ],
         "psr-4": {
-            "Helpers\\": "src/Helpers/",
+            "Helpers\\": "src/Helpers/"
         }
     },
 }
