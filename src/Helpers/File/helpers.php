@@ -1,6 +1,6 @@
 <?php
 
-use Helpers\Image\Image;
+use Helpers\File\File;
 
 if( ! function_exists('file_random_name') ){
 
@@ -44,25 +44,41 @@ if( ! function_exists('file_delete') ){
 
 if( ! function_exists('file_extension') ){
 
-    function file_extension($file){
-        $extension = pathinfo( file_tpm_name($file). '/' . file_name($file) );
+    function file_extension($inputfile){
+        $extension = pathinfo( file_tpm_name($inputfile). '/' . file_name($inputfile) );
         return $extension['extension'];
-    }
-
-}
-
-if( ! function_exists('file_tpm_name') ){
-
-    function file_tpm_name($file){
-        return $_FILES[$file]['tmp_name'];
     }
 
 }
 
 if( ! function_exists('file_name') ){
 
-    function file_name($file){
-        return $_FILES[$file]['name'];
+    function file_name($inputfile){
+        return $_FILES[$inputfile]['name'];
+    }
+
+}
+
+if( ! function_exists('file_tpm_name') ){
+
+    function file_tpm_name($inputfile){
+        return $_FILES[$inputfile]['tmp_name'];
+    }
+
+}
+
+if( ! function_exists('file_type') ){
+
+    function file_type($inputfile){
+        return $_FILES[$inputfile]['type'];
+    }
+
+}
+
+if( ! function_exists('file_size') ){
+
+    function file_size($inputfile){
+        return $_FILES[$inputfile]['size'];
     }
 
 }
