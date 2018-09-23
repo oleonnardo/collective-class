@@ -1,16 +1,17 @@
 {
-    "name": "classes/helpers",
+    "name": "leonardo/classes-helpers",
     "description": "Classes Auxiliares.",
     "keywords": ["helpers", "classes", "programmer"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Leonard Araujo",
+            "name": "Leonardo Araujo",
             "email": "leonardo.araujornb@gmail.com"
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": "^5.3.3 || ^7.0",
+        "another-vendor/package": "1.*"
     },
     "autoload": {
         "files": [
