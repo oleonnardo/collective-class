@@ -2,7 +2,7 @@
     "name": "leonardo/classes-helpers",
     "description": "Classes Auxiliares.",
     "keywords": ["helpers", "classes", "programmer"],
-    "version": "dev",
+    "version": "*",
     "license": "MIT",
     "authors": [
         {
@@ -15,10 +15,10 @@
     },
     "autoload": {
         "files": [
-            "src/Helpers/Image/helpers.php"
+            "src/helpers.php"
         ],
         "psr-4": {
-            "Helpers\\": "src/Helpers/"
+            "Collective\\Helpers\\": "src/"
         }
     }
 }
