@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers\File;
+namespace Collective\Helpers;
 
 class File {
 
@@ -37,7 +37,7 @@ class File {
             return false;
         }
 
-        return in_array($extension_image, $extension_image);
+        return in_array($extension_image, $extensions);
     }
 
 }

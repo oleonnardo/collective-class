@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e28d8dfaba59591963e685ddafff78ba",
+    "packages": [
+        {
+            "name": "leonardo/collective-class",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oleonnardo/collective-class.git",
+                "reference": "9eafe998468b9d63a7a374594661569876ff5d0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oleonnardo/collective-class/zipball/9eafe998468b9d63a7a374594661569876ff5d0c",
+                "reference": "9eafe998468b9d63a7a374594661569876ff5d0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collective\\Helpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leonardo Araujo",
+                    "email": "leonardo.araujornb@gmail.com"
+                }
+            ],
+            "description": "Classes Auxiliares.",
+            "keywords": [
+                "classes",
+                "helpers",
+                "programmer"
+            ],
+            "time": "2018-10-24T00:55:49+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "leonardo/collective-class": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

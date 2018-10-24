@@ -1,0 +1,48 @@
+[
+    {
+        "name": "leonardo/collective-class",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/oleonnardo/collective-class.git",
+            "reference": "9eafe998468b9d63a7a374594661569876ff5d0c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/oleonnardo/collective-class/zipball/9eafe998468b9d63a7a374594661569876ff5d0c",
+            "reference": "9eafe998468b9d63a7a374594661569876ff5d0c",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.2"
+        },
+        "time": "2018-10-24T00:55:49+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "src/helpers.php"
+            ],
+            "psr-4": {
+                "Collective\\Helpers\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Leonardo Araujo",
+                "email": "leonardo.araujornb@gmail.com"
+            }
+        ],
+        "description": "Classes Auxiliares.",
+        "keywords": [
+            "classes",
+            "helpers",
+            "programmer"
+        ]
+    }
+]
