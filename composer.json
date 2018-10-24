@@ -1,24 +1,25 @@
 {
-    "name": "leonardo/collective-class",
-    "description": "Classes Auxiliares.",
-    "keywords": ["helpers", "classes", "programmer"],
-    "version": "*",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Leonardo Araujo",
-            "email": "leonardo.araujornb@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^5.6 || ^7.2"
-    },
-    "autoload": {
-        "files": [
-            "src/helpers.php"
-        ],
-        "psr-4": {
-            "Collective\\Helpers\\": "src/"
-        }
+  "name": "leonardo/collective-class",
+  "description": "Classes Auxiliares.",
+  "keywords": ["helpers", "classes", "programmer"],
+  "version": "*",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Leonardo Araujo",
+      "email": "leonardo.araujornb@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^5.6 || ^7.2"
+  },
+  "autoload": {
+    "files": [
+      "src/Helpers/files.php",
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "Collective\\Helpers\\": "src/"
+    }
+  }
 }

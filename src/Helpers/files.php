@@ -75,6 +75,15 @@ if( ! function_exists('file_type') ){
 
 }
 
+
+if( ! function_exists('file_error') ){
+
+    function file_error($inputfile){
+        return $_FILES[$inputfile]['error'];
+    }
+
+}
+
 if( ! function_exists('file_size') ){
 
     function file_size($inputfile){
