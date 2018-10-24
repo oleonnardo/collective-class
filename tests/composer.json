@@ -1,7 +1,0 @@
-{
-  "name": "tests",
-  "version": "0.0.1",
-  "require":{
-    "leonardo/collective-class":"dev-master"
-  }
-}
