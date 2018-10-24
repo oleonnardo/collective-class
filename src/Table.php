@@ -22,11 +22,25 @@ use Collective\Helpers\Html;
 
 class Table extends Builder {
 
+    /**
+     *
+     * @var
+     */
     private static $model;
 
     private static $columnsOfTable;
 
     private static $attributesColumnsOfTable;
+
+    /**
+     * Define uma mensagem padrão caso nenhum registro seja adicionado à tabela
+     * @var
+     */
+    private static $message = 'Nenhum dado a ser exibido encontrado.';
+
+    private static $rowspan = 0;
+
+    private static $colspan = 0;
 
     /**
      * Especifica o alinhamento de uma tabela de acordo com o texto ao redor
@@ -38,20 +52,31 @@ class Table extends Builder {
 
     private static $alignValing = ['top', 'middle', 'bottom', 'baseline'];
 
+    /**
+     * Cria uma tabela já preenchida com dados de um array ou de uma variável qualquer
+     * O item $settings, irá receber quais campos (indices) que estão inclusas na varável $model
+     *
+     * @param $model
+     * @param array $settings
+     * @param array $attributes
+     * @return string
+     */
     public static function model($model, $settings = array(), $attributes = array()){
         self::$model = $model;
 
         $new_fetch = array();
         $cont = 0;
-        foreach (self::$model as $item) {
-            foreach ($settings as $key){
+        foreach (self::$model as $item) { // percorrendo o array com as informações da tabela
+            foreach ($settings as $key){ // percorrendo o array com as possívels chaves do array $model
                 if( isset($item[$key]) ){
+                    // Caso o exista o índice no array, ele será transferido para um novo array
                     $new_fetch[$cont][] = $item[$key];
                 }
             }
             $cont++;
         }
 
+        // o array $model é atualizado
         self::$model = $new_fetch;
 
         return self::open(self::$model, $attributes);
@@ -61,6 +86,8 @@ class Table extends Builder {
         $attr = '';
 
         self::$model = $model;
+
+        self::$rowspan = count(self::$model);
 
         $attributes['width'] = self::hasKey($attributes, 'width', '100%');
         $attributes['border'] = self::hasKey($attributes, 'border', '0');
@@ -75,6 +102,14 @@ class Table extends Builder {
 
     public static function close(){
         return Html::decode('</table>');
+    }
+
+    /**
+     * Altera a string da mensagem padrão, de quando não houver nenhum registro na tabela.
+     * @param $message
+     */
+    public static function setMessage($message){
+        self::$message = $message;
     }
 
     /**
@@ -110,32 +145,36 @@ class Table extends Builder {
      */
     public static function tbody($attributes = array()){
         self::$columnsOfTable = self::$model;
-        $td = '';
 
+        if( empty(self::$columnsOfTable) ){
+            return '<tr><td colspan="' . self::$colspan . '" align="center">' . self::$message . '</td></tr>';
+        }
+
+        $tr_td = '';
         $attr = self::catchAttributesTd($attributes);
 
         foreach (self::$columnsOfTable as $column){
 
-            $td .= '<tr>';
+            $tr_td .= '<tr>';
 
             foreach ($column as $key => $value){
 
                 $continuousAttr = '';
-                $td .= '<td ' . $attr['all'];
+                $tr_td .= '<td ' . $attr['all'];
 
                 if(! empty($attr['td']) ){
-                    $continuousAttr = (isset($attr['td'][$key])) ? $attr['td'][$key] : '';
+                    $continuousAttr = (isset($attr['td'][$key])) ? ' ' . $attr['td'][$key] : '';
                 }
 
-                $td .= ' ' . $continuousAttr . '>' . $value . '</td>';
+                $tr_td .= $continuousAttr . '>' . $value . '</td>';
 
             }
 
-            $td .= '</tr>';
+            $tr_td .= '</tr>';
 
         }
 
-        return Html::decode($td);
+        return Html::decode($tr_td);
     }
 
     /**
@@ -165,6 +204,8 @@ class Table extends Builder {
         $attributes = self::addAttr('valign', self::$alignValing, $attributes);
 
         $attr = self::attributes($attributes);
+
+        self::$colspan = count(self::$columnsOfTable);
 
         $partOf = '<' . $part . ' ' . $attr . '>';
         $partOf .= self::childPart($tag, self::$columnsOfTable);

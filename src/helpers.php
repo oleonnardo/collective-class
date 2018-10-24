@@ -1,7 +1,5 @@
 <?php
 
-
-
 if(! function_exists('e') ){
 
     function e($value){
@@ -35,6 +33,16 @@ if(! function_exists('transform_array_value') ){
             $new_array[] = $value;
         }
         return $new_array;
+    }
+
+}
+
+if(! function_exists('init_error')){
+
+    function init_error(){
+        ini_set('display_errors',1);
+        ini_set('display_startup_erros',1);
+        error_reporting(E_ALL);
     }
 
 }

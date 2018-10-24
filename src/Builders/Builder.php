@@ -22,10 +22,10 @@ abstract class Builder {
         return array_key_exists($indice, $attributes) ? $attributes[$indice] : $value;
     }
 
-    protected static function addAttr($attr, $options = array(), $attributes = array()){
+    protected static function addAttr($attr, $options = array(), $attributes = array(), $correctValue = null){
         foreach ($options as $name) {
             if (in_array($name, $attributes)) {
-                $attributes[$attr] = $name;
+                $attributes[$attr] = (empty($correctValue)) ? $name : $correctValue;
                 unset($attributes[ array_search($name, $attributes) ]);
                 return $attributes;
             }
