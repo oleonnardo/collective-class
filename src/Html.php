@@ -26,11 +26,41 @@ class Html extends Builder {
         return html_entity_decode($value, ENT_QUOTES, 'UTF-8');
     }
 
+    /**
+     * Cria a tag <a>
+     * @param $url
+     * @param $text
+     * @param array $attributes
+     * @return string
+     */
     public static function href($url, $text, $attributes = array()){
         $attributes = self::transformAttr('blank', 'target', '_blank', $attributes);
         $attributes['href'] = $url;
 
         return self::decode( self::tag('a', $text, self::attributes($attributes)) );
+    }
+
+    /**
+     * Exibe um elemento html com base no boostrap - alert
+     * @param $message
+     * @param string $type
+     * @param string $style
+     * @return string
+     */
+    public static function alert($message, $alert='info', $style='', $type='background'){
+        return self::decode('<div class="alert alert-'.$alert.' '.$type.'-'.$alert.'" style="'.$style.'">'.$message.'</div>');
+    }
+
+    /**
+     * Cria um elemento boostrap badge label
+     * @param $message
+     * @param string $color
+     * @param string $sizeBadge
+     * @param string $style
+     * @return string
+     */
+    public static function badge($message, $color='primary', $sizeBadge='label-md', $style=''){
+        return self::decode('<label class="label label-'.$color.' '.$sizeBadge.'" style="'.$style.'">'.$message.'</label>');
     }
 
     /**
